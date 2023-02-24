@@ -1,4 +1,4 @@
-import Panel from "./components/Panel";
+import { Panel } from "./components/Panel"
 
 export interface Country {
   capital: string[]

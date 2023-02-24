@@ -1,30 +1,33 @@
 import { useQuery } from "@tanstack/react-query"
+import { useMemo } from "react"
 import { Country } from "../App"
 import { enUsFormat, kelvinToCelsius } from "../utils"
+import { useCountryDetails } from "./useCountryDetails"
 
 interface CountryDetailsProps {
   country: Country
 }
 
 const CountryDetails = ({ country }: CountryDetailsProps) => {
-  const { name, capital, population, languages, flags, latlng } = country
-
+  const { name, capital, population, languages, flags, latlng } = useMemo(
+    () => country,
+    [country]
+  )
+  
   const [lat, lng] = latlng
-
   const {
     isLoading,
     isError,
-    data: result,
-  } = useQuery({
-    queryKey: ["countryDetails"],
-    queryFn: (): Promise<Country[]> =>
-      fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=73d5b70d0e161c9894f9287f5dd27afd`
-      ).then((res) => res.json()),
-    // fetch("https://restcountries.com/v3.1/all").then((res) => res.json()),
-  })
+    data: countryDetails,
+  } = useCountryDetails({ lat, lng })
 
-  console.log(result)
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (isError) {
+    return <div>An error has occurred</div>
+  }
 
   return (
     <div className="space-y-2 text-center pt-3">
@@ -62,11 +65,13 @@ const CountryDetails = ({ country }: CountryDetailsProps) => {
               Temperature in {capital}:
             </p>
             <p className="justify-self-start">
-              {kelvinToCelsius(result?.main?.temp)} Celcius
+              {kelvinToCelsius(countryDetails?.main?.temp)} Celcius
             </p>
 
             <p className="text-primary-content">Wind:</p>
-            <p className="justify-self-start">{result?.wind?.speed} m/s</p>
+            <p className="justify-self-start">
+              {countryDetails?.wind?.speed} m/s
+            </p>
           </>
         )}
         <h3 className="text-primary-content">Languages: </h3>

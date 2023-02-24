@@ -3,15 +3,7 @@ import FormNewCountry from "./FormNewCountry"
 import CountryPanel from "./CountryPanel"
 import { useCountry } from "./useCountry"
 
-const Layout = (Component: JSX.Element) => {
-  return (
-    <main className="p-4 sm:p-10 w-96 rounded-lg space-y-6 bg-neutral shadow-md font-medium m-2 mx-auto">
-      {Component}
-    </main>
-  )
-}
-
-const Panel = () => {
+const PanelContent = () => {
   const { isLoading, isError, data: countries } = useCountry()
   const [inputValue, setInputValue] = useState("")
 
@@ -32,7 +24,7 @@ const Panel = () => {
     )
   }
 
-  let countriesFiltered = countries?.filter((country) => {
+  const countriesFiltered = countries.filter((country) => {
     const countryName = country.name.common?.toLowerCase()
     const currentInputValue = inputValue.toLowerCase()
 
@@ -56,4 +48,10 @@ const Panel = () => {
   )
 }
 
-export default () => Layout(<Panel />)
+export const Panel = () => {
+  return (
+    <main className="p-4 sm:p-10 w-96 rounded-lg space-y-6 bg-neutral shadow-md font-medium m-2 mx-auto">
+      <PanelContent />
+    </main>
+  )
+}
