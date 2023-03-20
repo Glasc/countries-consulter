@@ -16,7 +16,7 @@ const App = () => {
     themeChange(false)
   }, [])
   return (
-    <div className="bg-gradient-to-b from-base-300 via-base-200 to-base-300 w-full flow-root min-h-screen">
+    <div className="bg-gradient-to-b bg-base-300 w-full flow-root min-h-screen">
       <ThemeToggler />
       <Panel />
     </div>
