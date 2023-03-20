@@ -49,32 +49,32 @@ const CountryDetails = ({ country }: CountryDetailsProps) => {
       <section className="grid grid-cols-2 gap-x-3 gap-y-2 items-center justify-items-end pt-2">
         {capital && (
           <>
-            <p className="text-primary-content ">Capital:</p>
-            <p className="justify-self-start text-base-content">{capital[0]}</p>
+            <p className=" font-semibold ">Capital:</p>
+            <p className="justify-self-start text-base-content/85">{capital[0]}</p>
           </>
         )}
         {population > 0 && (
           <>
-            <p className="text-primary-content ">Population:</p>
-            <p className="justify-self-start text-base-content">{enUsFormat(population)}</p>
+            <p className=" font-semibold ">Population:</p>
+            <p className="justify-self-start text-base-content/85">{enUsFormat(population)}</p>
           </>
         )}
         {capital && (
           <>
-            <p className="text-primary-content  text-right">
+            <p className=" font-semibold text-right">
               Temperature in {capital}:
             </p>
-            <p className="justify-self-start text-base-content">
+            <p className="justify-self-start text-base-content/85">
               {kelvinToCelsius(countryDetails?.main?.temp)} Celcius
             </p>
 
-            <p className="text-primary-content ">Wind:</p>
-            <p className="justify-self-start text-base-content">
+            <p className=" font-semibold ">Wind:</p>
+            <p className="justify-self-start text-base-content/85">
               {countryDetails?.wind?.speed} m/s
             </p>
           </>
         )}
-        <h3 className="text-base-content">Languages: </h3>
+        <h3 className=" font-semibold">Languages: </h3>
         <ul className="justify-self-start text-base-content text-left">
           {Object.entries(languages).map(([, value]: any, idx) => {
             return <li key={idx}>{value}</li>

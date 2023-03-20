@@ -3,7 +3,7 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   // daisyUI config (optional)
   daisyui: {
-    themes: ["dark", "winter"],
+    themes: ["dark", "light"],
   },
   plugins: [require("daisyui")],
 }

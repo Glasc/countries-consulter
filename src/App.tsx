@@ -11,15 +11,29 @@ export interface Country {
   latlng: number[]
 }
 
+const App = () => {
+  useEffect(() => {
+    themeChange(false)
+  }, [])
+  return (
+    <div className="bg-gradient-to-b from-base-300 via-base-200 to-base-300 w-full flow-root min-h-screen">
+      <ThemeToggler />
+      <Panel />
+    </div>
+  )
+}
+
+export default App
+
 const ThemeToggler = () => {
   const [darkThemeActive, setDarkThemeActive] = useState(false)
 
   return (
-    <div className="m-4">
+    <div className="m-4 max-w-lg w-full mx-auto">
       {darkThemeActive ? (
         <button
-        className="block ml-auto"
-          data-set-theme="winter"
+          className="block ml-auto"
+          data-set-theme="light"
           data-act-class="ACTIVECLASS"
           onClick={() => setDarkThemeActive(false)}
         >
@@ -33,7 +47,7 @@ const ThemeToggler = () => {
         </button>
       ) : (
         <button
-        className="block ml-auto"
+          className="block ml-auto"
           data-set-theme="dark"
           data-act-class="ACTIVECLASS"
           onClick={() => setDarkThemeActive(true)}
@@ -50,17 +64,3 @@ const ThemeToggler = () => {
     </div>
   )
 }
-
-const App = () => {
-  useEffect(() => {
-    themeChange(false)
-  }, [])
-  return (
-    <div className="bg-base-100 flow-root min-h-screen w-full">
-      <ThemeToggler />
-      <Panel />
-    </div>
-  )
-}
-
-export default App

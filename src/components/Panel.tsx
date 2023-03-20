@@ -50,7 +50,7 @@ const PanelContent = () => {
 
 export const Panel = () => {
   return (
-    <main className="p-4 mt-4 px-4 sm:p-10 w-full max-w-lg bg-base-300 rounded-lg space-y-6 shadow-md font-medium m-2 mx-auto">
+    <main className="p-4 mt-4 max-w-lg w-full px-4 bg-base-200 shadow sm:p-10 rounded-lg space-y-6 font-medium m-2 mx-auto">
       <PanelContent />
     </main>
   )
