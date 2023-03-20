@@ -1,6 +1,6 @@
 import { useState } from "react"
-import FormNewCountry from "./FormNewCountry"
 import CountryPanel from "./CountryPanel"
+import FormNewCountry from "./FormNewCountry"
 import { useCountry } from "./useCountry"
 
 const PanelContent = () => {
@@ -50,7 +50,7 @@ const PanelContent = () => {
 
 export const Panel = () => {
   return (
-    <main className="p-4 sm:p-10 w-96 rounded-lg space-y-6 bg-neutral shadow-md font-medium m-2 mx-auto">
+    <main className="p-4 mt-4 px-4 sm:p-10 w-full max-w-lg bg-base-300 rounded-lg space-y-6 shadow-md font-medium m-2 mx-auto">
       <PanelContent />
     </main>
   )

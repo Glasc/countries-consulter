@@ -19,7 +19,7 @@ const CountryPanel = ({ countries, isInputEmpty }: CountryPanelProps) => {
   if (countries.length >= 10) {
     return (
       <p className="text-warning text-center">
-        Too many matches, specify another filter.
+        Too many matches. Specify another filter.
       </p>
     )
   }

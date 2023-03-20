@@ -45,37 +45,37 @@ const CountryDetails = ({ country }: CountryDetailsProps) => {
         )}
       </div>
 
-      <h2 className="text-2xl text-primary-content">{name.common}</h2>
+      <h2 className="text-2xl text-base-content">{name.common}</h2>
       <section className="grid grid-cols-2 gap-x-3 gap-y-2 items-center justify-items-end pt-2">
         {capital && (
           <>
-            <p className="text-primary-content">Capital:</p>
-            <p className="justify-self-start">{capital[0]}</p>
+            <p className="text-primary-content ">Capital:</p>
+            <p className="justify-self-start text-base-content">{capital[0]}</p>
           </>
         )}
         {population > 0 && (
           <>
-            <p className="text-primary-content">Population:</p>
-            <p className="justify-self-start">{enUsFormat(population)}</p>
+            <p className="text-primary-content ">Population:</p>
+            <p className="justify-self-start text-base-content">{enUsFormat(population)}</p>
           </>
         )}
         {capital && (
           <>
-            <p className="text-primary-content text-right">
+            <p className="text-primary-content  text-right">
               Temperature in {capital}:
             </p>
-            <p className="justify-self-start">
+            <p className="justify-self-start text-base-content">
               {kelvinToCelsius(countryDetails?.main?.temp)} Celcius
             </p>
 
-            <p className="text-primary-content">Wind:</p>
-            <p className="justify-self-start">
+            <p className="text-primary-content ">Wind:</p>
+            <p className="justify-self-start text-base-content">
               {countryDetails?.wind?.speed} m/s
             </p>
           </>
         )}
-        <h3 className="text-primary-content">Languages: </h3>
-        <ul className="justify-self-start text-left">
+        <h3 className="text-base-content">Languages: </h3>
+        <ul className="justify-self-start text-base-content text-left">
           {Object.entries(languages).map(([, value]: any, idx) => {
             return <li key={idx}>{value}</li>
           })}

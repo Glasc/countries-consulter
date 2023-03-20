@@ -24,7 +24,8 @@ const FormNewCountry = ({
         type="text"
         onChange={handleInputChange}
         value={inputValue}
-        className="input input-bordered text-lg w-full md:max-w-xs"
+        className="input input-bordered text-lg mt-1 w-full placeholder-base-content/40"
+        placeholder="Mexico, Uruguay, Spain..."
       />
     </form>
   )

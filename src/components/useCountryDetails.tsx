@@ -49,13 +49,14 @@ type Props = {
 }
 
 export const useCountryDetails = ({ lat, lng }: Props) => {
+  console.log(import.meta.env.MODE)
   return useQuery({
     queryKey: ["countryDetails"],
     queryFn: (): Promise<CountryDetails> =>
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${
-          import.meta.env.VITE_API_KEY || import.meta.env.API_KEY
-        } `
+          import.meta.env.VITE_API_KEY 
+        }`
       ).then((res) => res.json()),
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
